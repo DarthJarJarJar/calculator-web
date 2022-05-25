@@ -1,5 +1,5 @@
 <script>
-    let num = "";
+    export let num = "";
     let series = ""
 
     function buttonPress1(){
@@ -76,6 +76,7 @@
         num = "";
     }
     
+
     
     </script>
 
