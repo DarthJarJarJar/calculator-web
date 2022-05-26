@@ -15,7 +15,7 @@
 
 <style>
     .input-num{
-		background-color: #fff;
+		background-color: #add8e6;
 		width: 337px;
 		margin: auto;
 		text-align: right;
@@ -37,11 +37,12 @@
 	}
 		
 	#invisible {
-		color: white;
+		color: #add8e6;
 	}
 	
 	.container {
-		background-color: #3A3B3C;
+		background-color: #fce043;
+background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
 		width: 400px;
 		text-align: center;
 		border-radius: 1.5rem;

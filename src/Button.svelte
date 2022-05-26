@@ -60,6 +60,9 @@
             num = eval(num).toExponential();
         }
     }
+    function buttonPress (number) {
+        num += number
+    }
     
     function deleteChar(){
         if(num != ""){
@@ -119,7 +122,7 @@
 
 <style>
     button {
-  background-color: #fff;
+  background-color: #add8e6;
   border: 0 solid #e2e8f0;
   border-radius: 1.5rem;
   box-sizing: border-box;
@@ -145,7 +148,9 @@
 }
 
 button:hover {
-  background-color: #D3D3D3;
+    background-color: #2a2a72;
+	background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+    color: white;
   
 }
 
