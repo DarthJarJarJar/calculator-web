@@ -1,4 +1,8 @@
 <script>
+import {
+  atan2, chain, derivative, e, evaluate, log, pi, pow, round, sqrt
+} from 'mathjs'
+ 
     export let num = "";
     let series = ""
 
@@ -54,26 +58,53 @@
     function subtract() {
         num += "-"
     }
+
+    function buttonPressSin() {
+        num += "sin"
+    }
+
+    function buttonPressCos() {
+        num += "cos"
+    }
+
+    function buttonPressTan() {
+        num += "tan"
+    }
+
+    function buttonPressBracketOpen() {
+        num += "("
+    }
+
+    function buttonPressBracketClose() {
+        num += ")"
+    }
+
+    function buttonPressDeg() {
+        num += "deg"
+    }
+
+    function buttonPressRad() {
+        num += "rad"
+    }
+
+    function buttonPressDecimal() {
+        num += "."
+    }
+
+
+
+
     function calculate(){
-        if(num.length<10){
-        num = eval(num);} else {
-            num = eval(num).toExponential();
-        }
+        
+        num = evaluate(num);
     }
     function buttonPress (number) {
         num += number
     }
     
     function deleteChar(){
-        if(num != ""){
-        let index = num.length-2;
-        if(num.length<=1){
-            num="";
-        }
-        else{
-        let newstring = num[index];
-        num = newstring;}}
-    
+        num = num.slice(0,num.length-1)
+
     }
     function clear() {
         num = "";
@@ -82,13 +113,31 @@
 
     
     </script>
+<div>
+    <span>
+        <button on:click={buttonPressSin} class="notnum">sin</button>
+        <button on:click={buttonPressCos} class="notnum">cos</button>
+        <button on:click={buttonPressTan} class="notnum">tan</button>
+        <button on:click={buttonPressDeg} class="notnum">deg</button>
+    </span>
+</div>
+<br>
+<div>
+    <span>
+        <button on:click={buttonPressBracketOpen} >(</button>
+        <button on:click={buttonPressBracketClose} >)</button>
+        <button on:click={buttonPressRad} >rad</button>
+        <button on:click={clear}>AC</button>
+    </span>
 
+</div>
+<br>
 <div>
     <span>
         <button on:click={buttonPress7}>7</button>
         <button on:click={buttonPress8}>8</button>
         <button on:click={buttonPress9}>9</button>
-        <button on:click={clear}>C</button>
+        <button on:click={deleteChar}>C</button>
     </span>
 </div>
 <br>
@@ -113,14 +162,49 @@
 <div>
     <span>
         <button on:click={buttonPress0}>0</button>
-        <button on:click={calculate}>=</button>
+        <button on:click={buttonPressDecimal}>.</button>
         <button on:click={divide}>/</button>
         <button on:click={multiply}>x</button>
     </span>
 </div>
 <br>
+<div>
+    <span>
+        <button on:click={calculate} class="equals">=</button>
+        
+    </span>
+</div>
+<br>
+
 
 <style>
+.equals {
+    width: 337px;
+}
+.notnum {
+    background-color: #add8e6;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  height: fit-content;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1rem 1.6rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+
+}
     button {
   background-color: #add8e6;
   border: 0 solid #e2e8f0;
@@ -148,9 +232,8 @@
 }
 
 button:hover {
-    background-color: #2a2a72;
-	background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
-    color: white;
+    background-color: white;
+    color: black;
   
 }
 
